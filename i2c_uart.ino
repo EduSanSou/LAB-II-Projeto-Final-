@@ -1,4 +1,4 @@
-#Codigo para testar a comunicação UART entre a GUI e o Arduino UNO (recebimento da string de movimentação)
+//Codigo para testar a comunicação UART entre a GUI e o Arduino UNO (recebimento da string de movimentação)
 #include <Wire.h>
 
 void setup()
