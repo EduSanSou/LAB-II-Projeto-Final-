@@ -1,3 +1,4 @@
+#IHM em Python (Interface grafica do usuario - GUI)
 #inclusao do modulo tkinter
 import tkinter as tk
 from tkinter import messagebox
@@ -8,20 +9,21 @@ import serial
 import time
 
 #definicao de funcoes
+#ligar/desligar robo
 def power_on_off():
     
     if power_btn.config('text')[-1] == 'ON':
         power_btn.config(text='OFF')
     else:
         power_btn.config(text='ON')
-
+#segurar/soltar da garra
 def hold_on_off():
     
     if hold_btn.config('text')[-1] == 'LED ON':
         hold_btn.config(text='LED OFF')
     else:
         hold_btn.config(text='LED ON')
-
+#incrementa angulo a
 def increase_degree_a():
     if int(a_degree_lbl["text"])>= 0:
         value = int(a_degree_lbl["text"])
@@ -72,7 +74,7 @@ def increase_degree_a():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-        
+#decrementa angulo a        
 def decrease_degree_a():
     if int(a_degree_lbl["text"])> 0:
         value = int(a_degree_lbl["text"])
@@ -124,7 +126,7 @@ def decrease_degree_a():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#incrementa angulo b
 def increase_degree_b():
     if int(b_degree_lbl["text"])>= 0:
         value = int(b_degree_lbl["text"])
@@ -176,7 +178,7 @@ def increase_degree_b():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#decrementa angulo b
 def decrease_degree_b():
     if int(b_degree_lbl["text"])> 0:
         value = int(b_degree_lbl["text"])
@@ -229,7 +231,7 @@ def decrease_degree_b():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#incrementa angulo c
 def increase_degree_c():
     if int(c_degree_lbl["text"])>= 0:
         value = int(c_degree_lbl["text"])
@@ -281,7 +283,7 @@ def increase_degree_c():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#decrementa angulo c
 def decrease_degree_c():
     if int(c_degree_lbl["text"])> 0:
         value = int(c_degree_lbl["text"])
@@ -334,7 +336,7 @@ def decrease_degree_c():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#incrementa angulo d
 def increase_degree_d():
     if int(d_degree_lbl["text"])>= 0:
         value = int(d_degree_lbl["text"])
@@ -386,7 +388,7 @@ def increase_degree_d():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#decrementa angulo d
 def decrease_degree_d():
     if int(d_degree_lbl["text"])> 0:
         value = int(d_degree_lbl["text"])
@@ -439,7 +441,7 @@ def decrease_degree_d():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#incrementa angulo e
 def increase_degree_e():
     if int(e_degree_lbl["text"])>= 0:
         value = int(e_degree_lbl["text"])
@@ -494,7 +496,7 @@ def increase_degree_e():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#decrementa angulo e
 def decrease_degree_e():
     if int(e_degree_lbl["text"])> 0:
         value = int(e_degree_lbl["text"])
@@ -550,12 +552,12 @@ def decrease_degree_e():
         local_string_ent += i
     string_ent.delete(0, tk.END)
     string_ent.insert(0, local_string_ent)
-
+#posicao inicial
 def move_home():
     mov_string = home_degree.get()
     ser.write(str(mov_string).encode())
     update_string_values(mov_string)
-
+#enviar string
 def send_string():
     mov_string = string_ent.get()
     ser.write(str(mov_string).encode())
